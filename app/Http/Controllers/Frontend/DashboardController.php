@@ -14,13 +14,27 @@ class DashboardController extends Controller
     {
         $type = $request->type ?? 'product';
 
+
+//        switch ($type){
+//            case 'product':
+//                $data = $this->productList();
+//            case 'category':
+//                $data = $this->categoryList();
+//            case 'subcategory':
+//                $data = $this->subCategoryList();
+//                break;
+//        }
+
+
         $data = [];
         if ($type == 'product'){
-            $data = $this->productList();
+            $data['products'] = $this->productList();
+            $data['categories'] = $this->categoryList();
+            $data['subcategories'] = $this->subCategoryList();
         }elseif ($type == 'category'){
-            $data = $this->categoryList();
+            $data['categories'] = $this->categoryList();
         }elseif ($type == 'subcategory'){
-            $data = $this->subCategoryList();
+            $data['subcategories'] = $this->subCategoryList();
         }
 
         return view('frontend.dashboard',compact(['data','type']));
