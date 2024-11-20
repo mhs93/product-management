@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\DashboardController;
 use App\Http\Controllers\Backend\ProductController;
+use App\Http\Controllers\ImageUploadController;
+use App\Http\Controllers\GameController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +25,10 @@ Route::get('/', function () {
 Route::get('dashboard',[DashboardController::class,'dashboard'])->name('dashboard');
 
 Route::post('product-store',[ProductController::class,'store'])->name('product.store');
+
+Route::get('images',[ImageUploadController::class,'index'])->name('images');
+Route::post('image-store',[ImageUploadController::class,'store'])->name('image.store');
+
+Route::get('games', [GameController::class, 'index'])->name('game.list');
+Route::get('games/ajax', [GameController::class, 'fetchGames'])->name('game.ajax.list');
+

@@ -23,6 +23,10 @@
             <td>{{ $product->price }}</td>
             <td>{{ $product->color }}</td>
             <td>{{ $product->quantity }}</td>
+            <td>
+                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" >Edit</button>
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</button>
+            </td>
         </tr>
         @endforeach
 
@@ -100,7 +104,7 @@
                     location.reload()
                 },
                 error: function (xhr) {
-                    if (xhr.status === 422) { // Validation error
+                    if (xhr.status === 422) {
                         let errors = xhr.responseJSON.errors;
                         let errorHtml = '<ul>';
                         $.each(errors, function (key, value) {

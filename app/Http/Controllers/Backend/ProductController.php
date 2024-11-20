@@ -19,11 +19,11 @@ class ProductController extends Controller
             'quantity' => 'required',
         ]);
 
-
         $input = $request->all();
         $data['name'] = $input['name'];
         $data['category_id'] = $input['category_id'];
         $data['subcategory_id'] = $input['subcategory_id'];
+        $data['image'] = $input['image'];
         $data['color'] = $input['color'];
         $data['price'] = $input['price'];
         $data['quantity'] = $input['quantity'];
