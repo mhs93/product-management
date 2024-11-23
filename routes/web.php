@@ -31,4 +31,5 @@ Route::post('image-store',[ImageUploadController::class,'store'])->name('image.s
 
 Route::get('games', [GameController::class, 'index'])->name('game.list');
 Route::get('games/ajax', [GameController::class, 'fetchGames'])->name('game.ajax.list');
+Route::post('games-store',[GameController::class,'store'])->name('game.store');
 

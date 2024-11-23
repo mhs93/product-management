@@ -23,4 +23,19 @@ class GameController extends Controller
         ]);
     }
 
+    public function store(Request $request)
+    {
+        $input = $request->all();
+        Game::create([
+            'name' => $input['name'],
+            'creator' => $input['creator'],
+
+        ]);
+        return response()->json([
+            'success' => true,
+            'msg' => 'game saved successfully'
+        ]);
+
+    }
+
 }
